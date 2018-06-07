@@ -46,6 +46,7 @@ npm start
 6) Run angular - 
 ng serve
 
+
 //Node server deployment on azure
 1) Create web app and app service plan
 2) select github in deployment options
@@ -54,6 +55,7 @@ ng serve
 "server.listen(process.env.PORT || 8080);"
 5) Compile the App.ts file and push on git
 6) Browse from azure and its working..
+
 
 //Angular Deployment to Azure
 1) In the angular folder in the app routing file update the command with 
@@ -69,3 +71,11 @@ this.expressApp.use('/', express.static(__dirname+'/recipeAngularDist'));
 under "Virtual applications and directories"
 from site\wwwroot to site\wwwroot\recipeAngularDist and save
 8) Browse the site by using https://cookingcracker.azurewebsites.net/#/ 
+
+//Google Oauth deployment to Azure
+1) Add GooglePassport.ts and googleOauth.ts and compile them.
+2) Run 'npm install passport' and 'npm install passport-google-oauth'
+3) Create a new project on google - https://console.developers.google.com/apis/dashboard
+4) Add client ID and secret to googleOauth.ts that will be generated on https://console.developers.google.com/apis/dashboard
+5) Add callback URL in GooglePassport.ts - http://cookingcracker.azurewebsites.net/auth/google/callback
+6) 
