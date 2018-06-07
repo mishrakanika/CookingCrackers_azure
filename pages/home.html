@@ -1,0 +1,136 @@
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+      <style>
+          .bg { 
+                background-image: url("http://kochihermosabeach.com/images/img02.jpg");
+                height: fit-content; 
+                opacity: 0.8;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                } 
+                .navbar {
+                    overflow:visible;
+                    background-color: #333;
+                    font-family: Arial, Helvetica, sans-serif;
+                } 
+                .navbar a {
+                    float: left;
+                    font-size: 16px;
+                    color: #faf9f8;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                } 
+               
+                .button {
+                    font-weight: bold;
+                    font-size: 24px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background-color: #333;
+                    Color:white;
+                    border-radius: 12px;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                }
+
+                .heading1{
+                    font-weight: bold;
+                    font-size: 40px;
+                    text-align: center;
+                } 
+
+ .dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover{
+    background-color: #ff6600 !important;
+}
+ 
+
+
+</style>
+      <body>
+            <body class="bg" onload="initXHR('home',null)">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Cooking Crackers</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Favorite Recipe</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuisine Type<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Indian</a></li>
+                <li><a href="#">Thai</a></li>
+                <li><a href="#">Italian</a></li>
+                <li><a href="#">American</a></li>
+                <li><a href="#">Chinese</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Meal Preference<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Diabetic</a></li>
+                <li><a href="#">Vegetarian</a></li>
+                <li><a href="#">Gluten Free</a></li>
+                <li><a href="#">Non Vegetarian</a></li>
+              </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+<br/><br/> <br/><br/>
+<div class="container" >
+        <div class="p-3 mb-2 bg-light text-dark">
+            <div id="meal" >
+                    <div class="panel panel-default"> 
+                      <!--  <div class="panel-heading"> 
+                        <li><a class="navbar-brand" href="javascript:initXHR('recipes', null)">All Recipes</a></li>
+                        <li><a class="navbar-brand" href="javascript:initXHR('recipesCatalog', null)">Recipe Catalog</a></li>
+                      </div> -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <a class="navbar-brand" href="javascript:initXHR('recipes', null)">All Recipes</a>
+                        </div>
+                        <div class="col-md-6">
+                          <a class="navbar-brand" href="javascript:initXHR('recipesCatalog', null)">Recipe Catalog</a>
+                        </div>
+                      </div>
+                      <div class="panel-body ml-1">
+                            <div id="home" style="display:none;">
+                            </div>                                                        
+                            <div id="recipes" style="display:none;">
+                            </div>                           
+                            <div id="recipeDetails" style="display:none;">
+                            </div> 
+                            <div id="recipesCatalog" style="display:none;">
+                            </div>
+                            <div id="recipesCatalogDetails" style="display:none;">
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+   </div>
+<script src="/script.js"></script>
+</body>
+</html>
