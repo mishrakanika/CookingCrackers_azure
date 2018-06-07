@@ -4,13 +4,14 @@ import * as logger from 'morgan';
 import * as mongodb from 'mongodb';
 import * as url from 'url';
 import * as bodyParser from 'body-parser';
-
+//import * as session from 'express-session';
 
 
 import {DataAccess} from './DataAccess';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
+
 
 import GooglePassportObj from './GooglePassport';
 
@@ -50,9 +51,9 @@ class App {
     this.expressApp.use(bodyParser.json());
     this.expressApp.use(bodyParser.urlencoded({ extended: false }));
 
-    // this.express.use(session({ secret: 'keyboard cat' }));
-    // this.express.use(passport.initialize());
-    // this.express.use(passport.session());
+     //this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
+     this.expressApp.use(passport.initialize());
+     this.expressApp.use(passport.session());
   }
 
 private validateAuth(req, res, next):void {
