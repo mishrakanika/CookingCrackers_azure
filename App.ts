@@ -104,11 +104,11 @@ class App {
         this.Recipes.DeleteRecipe(res, {rrecipeId: id});
     });
 
-    router.get('/', (req, res) => {
-        console.log('Query All list');
-        this.Recipes.retrieveAllRecipes(res);
+    // router.get('/', (req, res) => {
+    //     console.log('Query All list');
+    //     this.Recipes.retrieveAllRecipes(res);
        
-    });
+    // });
 
     
     
