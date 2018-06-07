@@ -1,0 +1,35 @@
+{
+  "name": "MochaTest1",
+  "version": "0.2.0",
+  "author": "Rutu Bhatt",
+  "description": "A simple mocha test",
+  "contributors": [
+    {
+      "name": "Rutu Bhatt"
+    }
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "main": "./server.js",
+  "keywords": [
+    "azure",
+    "boilerplate",
+    "express"
+  ],
+  "dependencies": {
+    "assert": "*",
+    "async": "^2.6.1",
+    "mocha": "^5.2.0",
+    "q": "^1.5.1"
+  },
+  "noAnalyze": true,
+  "license": "Apache",
+  "engines": {
+    "node": ">=0.12.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0"
+  }
+}
