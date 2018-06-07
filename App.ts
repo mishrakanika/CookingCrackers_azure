@@ -12,7 +12,7 @@ import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
 
-//import GooglePassportObj from './GooglePassport';
+import GooglePassportObj from './GooglePassport';
 
 let passport = require('passport');
 var fs = require('fs');
@@ -29,10 +29,12 @@ class App {
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
 
-  //public googlePassportObj:GooglePassportObj;
+  public googlePassportObj:GooglePassportObj;
 
   //Run configuration methods on the Express instance.
   constructor() {
+    this.googlePassportObj = new GooglePassportObj();
+
     this.expressApp = express();
     this.middleware();
     this.routes();
@@ -53,10 +55,11 @@ class App {
     // this.express.use(passport.session());
   }
 
-//   private validateAuth(req, res, next):void {
-//     if (req.isAuthenticated()) { return next(); }
-//         res.redirect('/');
-//   }
+private validateAuth(req, res, next):void {
+    if (req.isAuthenticated()) { console.log("user is authenticated"); return next(); }
+    console.log("user is not authenticated");
+    res.redirect('/');
+  }
 
   // Configure API endpoints.
   private routes(): void {
@@ -70,23 +73,18 @@ class App {
 
     //oauth
 
-// 	router.get('/auth/facebook', 
-//     passport.authenticate('facebook', 
-//         {scope: ['public_profile', 'email'] }
-//     )
-// );
+	router.get('/auth/google', 
+    passport.authenticate('google', 
+        {scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+    )
+);
 
-// router.get('/auth/facebook/callback', 
-//     passport.authenticate('facebook', 
-//         { failureRedirect: '/', successRedirect: '/myprofile' }
-//     )
-// );
+router.get('/auth/google/callback', 
+    passport.authenticate('google', 
+        { failureRedirect: '/', successRedirect: '/#/allrecipes' }
+    )
+);
 
-// router.get('/auth/userdata', this.validateAuth, (req, res) => {
-//     console.log('user object:' + JSON.stringify(req.user));
-//     this.username = JSON.stringify(req.user);
-//     res.json(req.user);
-// });
 
     router.post('/app/recipe/:recipeID', (req, res) => {
                 

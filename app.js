@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
-//import GooglePassportObj from './GooglePassport';
+var GooglePassport_1 = require("./GooglePassport");
 var passport = require('passport');
 var fs = require('fs');
 var cors = require('cors');
@@ -14,9 +14,9 @@ var max = 500;
 var min = 8;
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
-    //public googlePassportObj:GooglePassportObj;
     //Run configuration methods on the Express instance.
     function App() {
+        this.googlePassportObj = new GooglePassport_1["default"]();
         this.expressApp = express();
         this.middleware();
         this.routes();
@@ -34,10 +34,14 @@ var App = /** @class */ (function () {
         // this.express.use(passport.initialize());
         // this.express.use(passport.session());
     };
-    //   private validateAuth(req, res, next):void {
-    //     if (req.isAuthenticated()) { return next(); }
-    //         res.redirect('/');
-    //   }
+    App.prototype.validateAuth = function (req, res, next) {
+        if (req.isAuthenticated()) {
+            console.log("user is authenticated");
+            return next();
+        }
+        console.log("user is not authenticated");
+        res.redirect('/');
+    };
     // Configure API endpoints.
     App.prototype.routes = function () {
         var _this = this;
@@ -45,21 +49,8 @@ var App = /** @class */ (function () {
         router.use(cors());
         router.options('*', cors());
         //oauth
-        // 	router.get('/auth/facebook', 
-        //     passport.authenticate('facebook', 
-        //         {scope: ['public_profile', 'email'] }
-        //     )
-        // );
-        // router.get('/auth/facebook/callback', 
-        //     passport.authenticate('facebook', 
-        //         { failureRedirect: '/', successRedirect: '/myprofile' }
-        //     )
-        // );
-        // router.get('/auth/userdata', this.validateAuth, (req, res) => {
-        //     console.log('user object:' + JSON.stringify(req.user));
-        //     this.username = JSON.stringify(req.user);
-        //     res.json(req.user);
-        // });
+        router.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
+        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/#/allrecipes' }));
         router.post('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query changed single list with id: ' + id);
