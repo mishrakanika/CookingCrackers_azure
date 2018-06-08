@@ -127,7 +127,7 @@ router.get('/auth/google/callback',
     });
 
 
-    router.get('/app/recipe/', (req, res) => {
+    router.get('app/recipe/', (req, res) => {
   
         console.log('Query All Recipes');
         this.Recipes.retrieveAllRecipes(res);
@@ -140,7 +140,7 @@ router.get('/auth/google/callback',
         this.Recipes.retrieveRecipeDetails(res, {rrecipeId: id});
     });
     
-    router.get('/app/catalog', (req, res) => {
+    router.get('app/catalog', (req, res) => {
         console.log('Query All Recipe catalog');
         this.RecipesCatalog.retrieveAllCatalog(res);
     });
