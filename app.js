@@ -105,7 +105,7 @@ var App = /** @class */ (function () {
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
-        // this.expressApp.use('/', express.static(__dirname+'/recipeAngularDist'));    
+        this.expressApp.use('/', express.static(__dirname + '/recipeAngularDist'));
         // this.expressApp.use('/', express.static(__dirname+'/pages'));
     };
     return App;
