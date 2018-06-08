@@ -85,7 +85,7 @@ var App = /** @class */ (function () {
             res.send({ message: 'Recipe created!' });
             _this.idGenerator++;
         });
-        router.get('app/recipe/', function (req, res) {
+        router.get('/app/recipe/', function (req, res) {
             console.log('Query All Recipes');
             _this.Recipes.retrieveAllRecipes(res);
         });
@@ -94,7 +94,7 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with id: ' + id);
             _this.Recipes.retrieveRecipeDetails(res, { rrecipeId: id });
         });
-        router.get('app/catalog', function (req, res) {
+        router.get('/app/catalog', function (req, res) {
             console.log('Query All Recipe catalog');
             _this.RecipesCatalog.retrieveAllCatalog(res);
         });
