@@ -67,9 +67,6 @@ ng serve
 this.expressApp.use('/', express.static(__dirname+'/recipeAngularDist'));
 6) compile the App.ts file by command "tsc App.ts"
 7) Push the changes to git
-8) now just change the root of the app in the Azure "Application Settings"
-under "Virtual applications and directories"
-from site\wwwroot to site\wwwroot\recipeAngularDist and save
 8) Browse the site by using https://cookingcracker.azurewebsites.net/#/ 
 
 //Google Oauth deployment to Azure
