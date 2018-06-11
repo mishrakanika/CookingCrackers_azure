@@ -19,4 +19,5 @@ var DataAccess = /** @class */ (function () {
     return DataAccess;
 }());
 exports.DataAccess = DataAccess;
+exports["default"] = DataAccess;
 DataAccess.connect();
