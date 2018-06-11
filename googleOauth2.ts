@@ -3,3 +3,4 @@ class googleOauth2 {
     static secret:string = 'BclqVS0TSBbKgBto8UwvRf1q';
   }
   export default googleOauth2;
+  
