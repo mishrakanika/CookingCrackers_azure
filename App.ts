@@ -151,7 +151,7 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
-      router.get('*', (req, res) => {
+      router.get('/', (req, res) => {
           res.sendFile(__dirname + '/recipeAngularDist/index.html');
       });
 

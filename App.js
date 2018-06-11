@@ -99,7 +99,7 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with catalog: ' + id);
             _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
         });
-        router.get('*', function (req, res) {
+        router.get('/', function (req, res) {
             res.sendFile(__dirname + '/recipeAngularDist/index.html');
         });
         this.expressApp.use('/', router);
