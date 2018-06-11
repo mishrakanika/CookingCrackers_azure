@@ -9,14 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5dbe6d2-50de-49bc-9ee6-0e98e0cd3df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/App.ts" afterPath="$PROJECT_DIR$/App.ts" />
-      <change beforePath="$PROJECT_DIR$/DataAccess.js" afterPath="$PROJECT_DIR$/DataAccess.js" />
-      <change beforePath="$PROJECT_DIR$/DataAccess.ts" afterPath="$PROJECT_DIR$/DataAccess.ts" />
-      <change beforePath="$PROJECT_DIR$/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express-session/package.json" afterPath="$PROJECT_DIR$/node_modules/express-session/package.json" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-    </list>
+    <list default="true" id="e5dbe6d2-50de-49bc-9ee6-0e98e0cd3df6" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -135,12 +128,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528743258028</updated>
-      <workItem from="1528743259811" duration="1889000" />
+      <workItem from="1528743259811" duration="1962000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1889000" />
+    <option name="totallyTimeSpent" value="1962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
