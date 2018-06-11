@@ -68,10 +68,6 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with id: ' + id);
             _this.Recipes.DeleteRecipe(res, { rrecipeId: id });
         });
-        // router.get('/', (req, res) => {
-        //     console.log('Query All list');
-        //     this.Recipes.retrieveAllRecipes(res);
-        // });
         router.post('/app/recipe/', function (req, res) {
             console.log("Inside Post");
             var jsonObj = req.body;
@@ -103,10 +99,12 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with catalog: ' + id);
             _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
         });
+        router.get('*', function (req, res) {
+            res.sendFile(__dirname + '/recipeAngularDist/index.html');
+        });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
         this.expressApp.use('/', express.static(__dirname + '/recipeAngularDist'));
-        // this.expressApp.use('/', express.static(__dirname+'/pages'));
     };
     return App;
 }());

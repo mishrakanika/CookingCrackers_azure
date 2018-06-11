@@ -108,13 +108,6 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         console.log('Query single recipe with id: ' + id);
         this.Recipes.DeleteRecipe(res, {rrecipeId: id});
     });
-
-    // router.get('/', (req, res) => {
-    //     console.log('Query All list');
-    //     this.Recipes.retrieveAllRecipes(res);
-       
-    // });
-
     
     
     router.post('/app/recipe/', (req, res) => {
@@ -158,14 +151,15 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
 
-
+      router.get('*', (req, res) => {
+          res.sendFile(__dirname + '/recipeAngularDist/index.html');
+      });
 
     
     this.expressApp.use('/', router);
     this.expressApp.use('/images', express.static(__dirname+'/img'));
     this.expressApp.use('/', express.static(__dirname+'/recipeAngularDist'));    
-   // this.expressApp.use('/', express.static(__dirname+'/pages'));
-     
+
     
   }
 
