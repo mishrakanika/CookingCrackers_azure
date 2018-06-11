@@ -77,11 +77,11 @@ private validateAuth(req, res, next):void {
 
 	router.get('/auth/google', 
     passport.authenticate('google', 
-        {scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+        {scope: ['email', 'profile'] }
     )
 );
 
-router.get('/auth/google/callback', 
+router.get('/auth/google/callback',
     passport.authenticate('google', 
         { failureRedirect: '/', successRedirect: '/#/allrecipes' }
     )
