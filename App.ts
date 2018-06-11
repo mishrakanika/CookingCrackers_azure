@@ -87,11 +87,11 @@ router.get('/auth/google/callback',
     )
 );
 
-// router.get('/auth/userdata', this.validateAuth, (req, res) => {
-//     console.log('user object:' + JSON.stringify(req.user));
-//     this.username = JSON.stringify(req.user);
-//     res.json(req.user);
-// });
+router.get('/auth/userdata', this.validateAuth, (req, res) => {
+    console.log('user object:' + JSON.stringify(req.user));
+    this.username = JSON.stringify(req.user);
+    res.json(req.user);
+});
 
     router.post('/app/recipe/:recipeID', (req, res) => {
                 

@@ -52,11 +52,11 @@ var App = /** @class */ (function () {
         //oauth
         router.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
         router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/#/allrecipes' }));
-        // router.get('/auth/userdata', this.validateAuth, (req, res) => {
-        //     console.log('user object:' + JSON.stringify(req.user));
-        //     this.username = JSON.stringify(req.user);
-        //     res.json(req.user);
-        // });
+        router.get('/auth/userdata', this.validateAuth, function (req, res) {
+            console.log('user object:' + JSON.stringify(req.user));
+            _this.username = JSON.stringify(req.user);
+            res.json(req.user);
+        });
         router.post('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query changed single list with id: ' + id);
