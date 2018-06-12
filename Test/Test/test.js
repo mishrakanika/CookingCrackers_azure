@@ -93,7 +93,7 @@ chai.use(chaiHttp);
 			
 		  }
 		  chai.request("http://cookingcracker.azurewebsites.net")
-				  .post('/#/addrecipe/')
+				  .post('/#/app/recipe/')
 				  .send(recipe)
 				  .end(function(err, res)  {
 					  requestResult = res.body;
