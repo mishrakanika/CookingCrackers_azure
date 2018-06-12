@@ -9,7 +9,7 @@ var should = chai.should();
 var http = require('http');
 chai.use(chaiHttp);
 
-	describe('Test Cooking Crackers result', function () {
+	describe('Cooking Crackers: Test get recipes', function () {
 		this.timeout(150000);
 		  var requestResult;
 		  var response;
@@ -75,14 +75,14 @@ chai.use(chaiHttp);
 	  
 	  });	
 
-	  describe('Test post recipes', function () {
+	  describe('Cooking Crackers: Test post recipes', function () {
 		this.timeout(150000);
 		  var requestResult;
 		  var response;
 			   
 	  before(function (done) {
 	  let recipe={
-			rname: "Test Post Recipe",
+			rname: "Test Post Recipe1",
 			rdescription:"Upma, is a dish from the Indian subcontinent, cooked as a thick porridge from dry roasted semolina or coarse rice flour.",
 			rmethod: "1 Place semolina in cast iron pan and cook over medium heat until toasty but not browned, about 2 minutes. Transfer to a bowl.2.Return pan to medium heat and heat ghee or oil until shimmering. Add the mustard seeds and split black gram, stir until they splutter, about 30 seconds. Add the onion, fry until slightly soft, about a minute (take care not to brown). Add the slit chillis, curry leaves and stir until fragrant, about a minute longer. Add the carrots, peas, red chilli powder, and sugar, and stir until fragrant and the mixture is coated with the ghee/oil, about 1 minute.3.Add toasted semolina and stir vigorously until the mixture resembles wet sand—about a minute. Add the salt and gently pour in the water. The semolina will bubble and spurt as it absorbs the water. Reduce heat to low. Allow this mixture to cook for about 2 minutes, stirring constantly. The Upma absorbs water very quickly and tends to dry out too, so turn off the heat when the mixture is slightly runny. Serve immediately.",
 			rcuisinetype: "Indian",
@@ -93,7 +93,7 @@ chai.use(chaiHttp);
 			
 		  }
 		  chai.request("http://cookingcracker.azurewebsites.net")
-				  .post('/app/recipe/')
+				  .post('/#/addrecipe/')
 				  .send(recipe)
 				  .end(function(err, res)  {
 					  requestResult = res.body;
