@@ -53,7 +53,7 @@ var App = /** @class */ (function () {
         router.options('*', cors());
         //oauth
         router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.me', 'email'] }));
-        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: 'http://localhost:4200/#/allrecipes' }));
+        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/#/allrecipes' }));
         // router.get('/auth/google',
         //             passport.authenticate('google',
         //                 { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
