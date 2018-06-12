@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var Mongoose = require("mongoose");
-var DataAccess_1 = require("./../DataAccess");
+var DataAccess_1 = require("../DataAccess");
 var mongoose = DataAccess_1["default"].mongooseInstance;
 var mongooseConnection = DataAccess_1["default"].mongooseConnection;
 var UserModel = /** @class */ (function () {
@@ -24,6 +24,12 @@ var UserModel = /** @class */ (function () {
     };
     UserModel.prototype.retrieveUserDetails = function (response, filter) {
         var query = this.model.findOne(filter);
+        query.exec(function (err, itemArray) {
+            response.json(itemArray);
+        });
+    };
+    UserModel.prototype.retrieveAllUsers = function (response) {
+        var query = this.model.find({});
         query.exec(function (err, itemArray) {
             response.json(itemArray);
         });

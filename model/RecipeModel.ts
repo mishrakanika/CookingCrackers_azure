@@ -64,6 +64,15 @@ class RecipeModel {
         });
     }
 
+    // public UpdateRecipe(response:any, filter1:Object , filter2:object) {
+    //     console.log("updating recipe with id :"+filter2.toString );
+    //     var query = this.model.findOne(filter2);
+    //     var newquery = {$set:filter1}
+        
+    //     query.exec( (err, itemArray) => {
+    //         response.json(itemArray);
+    //     });
+    // } 
 
 
 }

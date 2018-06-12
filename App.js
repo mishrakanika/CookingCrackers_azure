@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var RecipeModel_1 = require("./model/RecipeModel");
 var RecipeCatalogModel_1 = require("./model/RecipeCatalogModel");
 var RecipeCatalogDetailsModel_1 = require("./model/RecipeCatalogDetailsModel");
+var UserModel_1 = require("./model/UserModel");
 var GooglePassport_1 = require("./GooglePassport");
 var passport = require('passport');
 var fs = require('fs');
@@ -25,13 +26,14 @@ var App = /** @class */ (function () {
         this.Recipes = new RecipeModel_1.RecipeModel();
         this.RecipesCatalog = new RecipeCatalogModel_1.RecipeCatalogModel();
         this.RecipeCatalogDetails = new RecipeCatalogDetailsModel_1.RecipeCatalogDetailsModel();
+        this.User = new UserModel_1.UserModel();
     }
     // Configure Express middleware.
     App.prototype.middleware = function () {
         this.expressApp.use(logger('dev'));
         this.expressApp.use(bodyParser.json());
-        this.expressApp.use(bodyParser.urlencoded({ extended: false }));
         this.expressApp.use(passport.initialize());
+        this.expressApp.use(bodyParser.urlencoded({ extended: false }));
         this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
         this.expressApp.use(passport.session());
     };
@@ -50,19 +52,39 @@ var App = /** @class */ (function () {
         router.use(cors());
         router.options('*', cors());
         //oauth
-        router.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }));
-        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: '/#/allrecipes' }));
+        router.get('/auth/google', cors(), passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.me', 'email'] }));
+        router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/', successRedirect: 'http://localhost:4200/#/allrecipes' }));
+        // router.get('/auth/google',
+        //             passport.authenticate('google',
+        //                 { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
+        //             ), (res, req) => {
+        //             console.log(req);
+        //             }
+        //         );
+        //         router.get('/auth/google/callback',
+        //             passport.authenticate('google',
+        //                 { successRedirect: '/#/allrecipes', failureRedirect: '/'
+        //                 }
+        //             ), function(res, req) {
+        //                 console.log("2RES:" + res);
+        //                 console.log("2REQ:" + req);
+        //             }
+        //         );
         router.get('/auth/userdata', this.validateAuth, function (req, res) {
             console.log('user object:' + JSON.stringify(req.user));
             _this.username = JSON.stringify(req.user);
             res.json(req.user);
         });
-        router.post('/app/recipe/:recipeID', function (req, res) {
-            var id = req.params.recipeID;
-            console.log('Query changed single list with id: ' + id);
-            console.log(res.header);
-            res.send("Received post for id:" + id);
-        });
+        // router.post('/app/recipe/:recipeID', (req, res) => {
+        //     var id = req.params.recipeID;
+        //     console.log('Query changed single list with id: ' + id);
+        //     this.Recipes.model.update([id], (err) => {
+        //         if (err) {
+        //             console.log('Recipe updation failed');
+        //         }
+        //     }); 
+        //     res.send({ message: 'Recipe updated!' });
+        // });
         router["delete"]('/app/recipe/:recipeID', function (req, res) {
             var id = req.params.recipeID;
             console.log('Query single recipe with id: ' + id);
@@ -71,7 +93,7 @@ var App = /** @class */ (function () {
         router.post('/app/recipe/', function (req, res) {
             console.log("Inside Post");
             var jsonObj = req.body;
-            jsonObj.rrecipeId = _this.idGenerator;
+            jsonObj.rrecipeId = _this.idGenerator++;
             console.log("id..." + jsonObj.rrecipeId);
             _this.Recipes.model.create([jsonObj], function (err) {
                 if (err) {
@@ -119,12 +141,30 @@ var App = /** @class */ (function () {
             console.log('Query single user with username: ' + id);
             _this.User.retrieveUserDetails(res, { username: id });
         });
-        router.get('/', function (req, res) {
-            res.sendFile(__dirname + '/recipeAngularDist/index.html');
+        router.post('/app/user/', function (req, res) {
+            console.log("Inside node server User Post");
+            var jsonObj = req.body;
+            _this.idGenerator = Math.floor(Math.random() * (max - min) + min);
+            jsonObj.userId = _this.idGenerator++;
+            console.log("id..." + jsonObj.userId);
+            // jsonObj.username = id;
+            //console.log("username..."+jsonObj.userId);
+            _this.User.model.create([jsonObj], function (err) {
+                if (err) {
+                    console.log('object creation failed');
+                }
+            });
+            res.send({ message: 'New User created!' });
+            _this.idGenerator++;
+        });
+        router.get('/app/all/users/', function (req, res) {
+            console.log('Query All Users');
+            _this.User.retrieveAllUsers(res);
         });
         this.expressApp.use('/', router);
         this.expressApp.use('/images', express.static(__dirname + '/img'));
         this.expressApp.use('/', express.static(__dirname + '/recipeAngularDist'));
+        // this.expressApp.use('/', express.static(__dirname+'/pages'));
     };
     return App;
 }());

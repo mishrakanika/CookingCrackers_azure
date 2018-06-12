@@ -1,5 +1,5 @@
 import Mongoose = require('mongoose');
-import DataAccess from './../DataAccess';
+import DataAccess from '../DataAccess';
 import IUserModel from '../interfaces/IUserModel';
 
 var mongoose = DataAccess.mongooseInstance;
@@ -37,6 +37,14 @@ class UserModel {
             response.json(itemArray);
         });
     }
+
+    public retrieveAllUsers(response:any): any {
+        var query = this.model.find({});
+        query.exec( (err, itemArray) => {
+            response.json(itemArray) ;
+        });
+    } 
+
 
 
 
