@@ -92,8 +92,8 @@ chai.use(chaiHttp);
 			ringredients: "1 cup semolina flour, 1 1/2 tablespoons ghee or vegetable oil, 1 teaspoon whole black mustard seeds, 1 teaspoon split black gram (Urad dal), 1 small onion chopped (about 1/2 cup), 2 small green chills split lengthwise, 10 curry leaves, 1/4 cup diced boiled carrots, 1/4 cup boiled green peas, 1 teaspoon red chilli powder, 1 teaspoon sugar, Kosher salt, 2 1/4 cups water",
 			
 		  }
-		  chai.request("http://cookingcracker.azurewebsites.net")
-				  .post('/#/app/recipe/')
+		  chai.request("https://cookingcracker.azurewebsites.net")
+				  .post('/app/recipe/')
 				  .send(recipe)
 				  .end(function(err, res)  {
 					  requestResult = res.body;
