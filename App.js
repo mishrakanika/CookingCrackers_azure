@@ -31,8 +31,8 @@ var App = /** @class */ (function () {
         this.expressApp.use(logger('dev'));
         this.expressApp.use(bodyParser.json());
         this.expressApp.use(bodyParser.urlencoded({ extended: false }));
-        this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
         this.expressApp.use(passport.initialize());
+        this.expressApp.use(passport.session({ secret: 'keyboard cat' }));
         this.expressApp.use(passport.session());
     };
     App.prototype.validateAuth = function (req, res, next) {

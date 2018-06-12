@@ -15,7 +15,7 @@ class UserModel {
     }
 
     public createSchema(): void {
-        this.schema =  mongoose.Schema(
+        this.schema =  new Mongoose.Schema(
             {
                 firstName: String,
                 lastName: String,
