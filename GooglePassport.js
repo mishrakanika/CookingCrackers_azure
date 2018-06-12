@@ -12,7 +12,7 @@ var GooglePassport = /** @class */ (function () {
         passport.use(new GoogleStrategy({
             clientID: this.clientId,
             clientSecret: this.secretId,
-            callbackURL: "http://cookingcracker.azurewebsites.net/auth/google/callback",
+            callbackURL: "https://cookingcracker.azurewebsites.net/auth/google/callback",
             profileFields: ['id', 'displayName', 'emails']
         }, function (accessToken, refreshToken, profile, done) {
             process.nextTick(function () {
