@@ -99,6 +99,21 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with catalog: ' + id);
             _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
         });
+        router.get('/app/catalog/1/:rmealtype', function (req, res) {
+            var id = req.params.rmealtype;
+            console.log('Query single user with mealtype: ' + id);
+            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rmealtype: id });
+        });
+        router.get('/app/catalog/2/:rcuisinetype', function (req, res) {
+            var id = req.params.rcuisinetype;
+            console.log('Query single user with cuisinetype: ' + id);
+            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rcuisinetype: id });
+        });
+        router.get('/app/catalog/3/:rmealpreference', function (req, res) {
+            var id = req.params.rmealpreference;
+            console.log('Query single user with mealpreference: ' + id);
+            _this.Recipes.retrieveRecipeDetailsByCatalogue(res, { rmealpreference: id });
+        });
         router.get('/app/user/username/:usernames', function (req, res) {
             var id = req.params.usernames;
             console.log('Query single user with username: ' + id);

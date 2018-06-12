@@ -152,6 +152,26 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
     });
 
 
+
+      router.get( '/app/catalog/1/:rmealtype', (req, res) => {
+          var id = req.params.rmealtype;
+          console.log('Query single user with mealtype: ' + id);
+          this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealtype: id});
+      });
+
+      router.get( '/app/catalog/2/:rcuisinetype', (req, res) => {
+          var id = req.params.rcuisinetype;
+          console.log('Query single user with cuisinetype: ' + id);
+          this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rcuisinetype: id});
+      });
+
+      router.get( '/app/catalog/3/:rmealpreference', (req, res) => {
+          var id = req.params.rmealpreference;
+          console.log('Query single user with mealpreference: ' + id);
+          this.Recipes.retrieveRecipeDetailsByCatalogue(res, {rmealpreference: id});
+      });
+
+
       router.get( '/app/user/username/:usernames', (req, res) => {
           var id = req.params.usernames;
           console.log('Query single user with username: ' + id);
