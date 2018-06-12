@@ -13,6 +13,7 @@ var UserModel = /** @class */ (function () {
             firstName: String,
             lastName: String,
             userId: Number,
+            username: String,
             password: String,
             isChef: Boolean
         }, { collection: 'users' });

@@ -11,7 +11,7 @@ import * as session from 'express-session';
 import {RecipeModel} from './model/RecipeModel';
 import {RecipeCatalogModel} from './model/RecipeCatalogModel';
 import {RecipeCatalogDetailsModel} from './model/RecipeCatalogDetailsModel';
-
+import {UserModel} from './model/UserModel';
 
 import GooglePassportObj from './GooglePassport';
 
@@ -30,7 +30,7 @@ class App {
   public username:string;
   public RecipesCatalog:RecipeCatalogModel;
   public RecipeCatalogDetails:RecipeCatalogDetailsModel;
-
+  public User:UserModel;
   public googlePassportObj:GooglePassportObj;
 
   //Run configuration methods on the Express instance.
@@ -150,6 +150,15 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
         console.log('Query single recipe with catalog: ' + id);
         this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, {rcId: id});
     });
+
+
+      router.get( '/app/user/username/:usernames', (req, res) => {
+          var id = req.params.usernames;
+          console.log('Query single user with username: ' + id);
+          this.User.retrieveUserDetails(res, {username: id});
+      });
+
+
 
       router.get('/', (req, res) => {
           res.sendFile(__dirname + '/recipeAngularDist/index.html');

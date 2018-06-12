@@ -99,6 +99,11 @@ var App = /** @class */ (function () {
             console.log('Query single recipe with catalog: ' + id);
             _this.RecipeCatalogDetails.retrieveRecipeCatalogDetails(res, { rcId: id });
         });
+        router.get('/app/user/username/:usernames', function (req, res) {
+            var id = req.params.usernames;
+            console.log('Query single user with username: ' + id);
+            _this.User.retrieveUserDetails(res, { username: id });
+        });
         router.get('/', function (req, res) {
             res.sendFile(__dirname + '/recipeAngularDist/index.html');
         });

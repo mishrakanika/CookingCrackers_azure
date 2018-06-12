@@ -85,8 +85,8 @@
       <file leaf-file-name="App.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state relative-caret-position="-283">
+              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <element signature="e#296#344#0" expanded="true" />
@@ -157,26 +157,6 @@
               <item name="CookingCrackers_azure" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="CookingCrackers_azure" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CookingCrackers_azure" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="CookingCrackers_azure" type="462c0819:PsiDirectoryNode" />
-              <item name="createDB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CookingCrackers_azure" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="CookingCrackers_azure" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CookingCrackers_azure" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="CookingCrackers_azure" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CookingCrackers_azure" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="CookingCrackers_azure" type="462c0819:PsiDirectoryNode" />
-              <item name="recipeAngularDist" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -211,12 +191,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528743258028</updated>
       <workItem from="1528743259811" duration="2555000" />
-      <workItem from="1528747514785" duration="1626000" />
+      <workItem from="1528747514785" duration="2050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4181000" />
+    <option name="totallyTimeSpent" value="4605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -297,14 +277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataAccess.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/UserModel.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -353,10 +325,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DataAccess.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="-283">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
             <element signature="e#296#344#0" expanded="true" />
