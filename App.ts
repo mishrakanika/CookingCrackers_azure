@@ -123,7 +123,7 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
     });
 
 
-    router.get('/app/recipe/', this.validateAuth, (req, res) => {
+    router.get('/app/recipe/', (req, res) => {
   
         console.log('Query All Recipes');
         this.Recipes.retrieveAllRecipes(res);

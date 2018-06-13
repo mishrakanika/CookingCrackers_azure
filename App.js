@@ -77,7 +77,7 @@ var App = /** @class */ (function () {
             res.send({ message: 'Recipe created!' });
             _this.idGenerator++;
         });
-        router.get('/app/recipe/', this.validateAuth, function (req, res) {
+        router.get('/app/recipe/', function (req, res) {
             console.log('Query All Recipes');
             _this.Recipes.retrieveAllRecipes(res);
         });
