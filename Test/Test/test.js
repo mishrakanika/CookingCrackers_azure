@@ -13,9 +13,7 @@ chai.use(chaiHttp);
 		this.timeout(150000);
 		  var requestResult;
 		  var response;
-			
-		  	//   chai.request("http://localhost:8080")
-	// 			  .get("/app/recipe/")
+		
 	  before(function (done) {
 		chai.request("http://cookingcracker.azurewebsites.net")
 		.get("/#/getRecipe/1/")
@@ -28,17 +26,6 @@ chai.use(chaiHttp);
 				  });
 	  });
 	  
-	  
-	//   it('The first entry in the recipe array has known properties', function(){
-	// 		  //expect(requestResult).to.include.keys('_id');
-	// 		  expect(response.body[0]).to.have.property('rrecipeId');
-	// 		//   expect(requestResult[0]).to.have.property('rname');
-	// 		//   expect(requestResult[0]).to.have.property('rmethod');
-	// 		//   expect(requestResult[0]).to.have.property('rdescription');
-	// 		//   expect(requestResult[0]).to.have.property('rduration');
-	// 		//   expect(requestResult[0]).to.have.property('ringredients');
-	// 		  expect(response.body).to.not.be.a.string;
-	// 	  });
 	  
 	  it('The elements in the recipe array have the expected properties', function(){
 			  expect(response.body).to.satisfy(
@@ -103,7 +90,7 @@ chai.use(chaiHttp);
 				  });
 				  });
 	  
-	  it('It should have the success status response ', function(){  
+	  it('It should have a known property ', function(){  
 			  
 			  expect(response.body).to.have.property('message');
 	  });
