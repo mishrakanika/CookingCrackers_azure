@@ -91,41 +91,12 @@ router.get('/auth/google/callback',
     )
 );
 
-// router.get('/auth/google',
-//             passport.authenticate('google',
-//                 { scope: ['https://www.googleapis.com/auth/plus.login', 'email'] }
-//             ), (res, req) => {
-//             console.log(req);
-//             }
-//         );
-
-//         router.get('/auth/google/callback',
-//             passport.authenticate('google',
-//                 { successRedirect: '/#/allrecipes', failureRedirect: '/'
-//                 }
-//             ), function(res, req) {
-//                 console.log("2RES:" + res);
-//                 console.log("2REQ:" + req);
-//             }
-//         );
 
 router.get('/auth/userdata', this.validateAuth, (req, res) => {
     console.log('user object:' + JSON.stringify(req.user));
     this.username = JSON.stringify(req.user);
     res.json(req.user);
 });
-
-    // router.post('/app/recipe/:recipeID', (req, res) => {
-                
-    //     var id = req.params.recipeID;
-    //     console.log('Query changed single list with id: ' + id);
-    //     this.Recipes.model.update([id], (err) => {
-    //         if (err) {
-    //             console.log('Recipe updation failed');
-    //         }
-    //     }); 
-    //     res.send({ message: 'Recipe updated!' });
-    // });
 
     router.delete('/app/recipe/:recipeID', (req, res) => {
    
@@ -152,7 +123,7 @@ router.get('/auth/userdata', this.validateAuth, (req, res) => {
     });
 
 
-    router.get('/app/recipe/', (req, res) => {
+    router.get('/app/recipe/', this.validateAuth, (req, res) => {
   
         console.log('Query All Recipes');
         this.Recipes.retrieveAllRecipes(res);
